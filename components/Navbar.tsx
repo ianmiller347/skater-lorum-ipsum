@@ -8,12 +8,14 @@ const Navbar = () => {
 		<ul className={styles.listContainer}>
 			<div className={styles.inner}> 
 				<li>
-					<Link className={styles.link} href="/">Home</Link>
+					<Link className={styles.link} href="/">SKATER LORUM IPSUM</Link>
 				</li>
 				<li>
 					<Link className={styles.link} href="/Sk8rs"> Sk8rs</Link>
 				</li>
+				<li>
 					<Link className={styles.link} href="/Videos">Videos</Link>
+					</li>
 				<li>
 					<Link className={styles.link} href="/About">About</Link>
 				</li>

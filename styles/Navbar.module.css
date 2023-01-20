@@ -1,11 +1,12 @@
 .navbar{
 	height: 60px;
+	margin-bottom: 20px;
 	background-color: rgb(40, 42, 54);
 }
 
 .listContainer{
-	height: 100%;
 	padding: 0 4vw;
+	height: 100%;
 }
 
 .inner{
@@ -17,6 +18,10 @@
 	margin: 0 auto;
 	max-width: 1040px;
 	width: 100%;
+}
+
+.title{
+	margin-right: 10px;
 }
 
 .link{
