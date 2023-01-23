@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar/Navbar'
 import { videoURLS } from '../data/videoURLs'
 import styles from '../styles/Video.module.css'
 
