@@ -1,4 +1,4 @@
-export const ipsumWords = [
+const ipsumWords = [
   '50-50 grind',
   '5-0 grind',
   'Acid drop',
@@ -128,3 +128,5 @@ export const ipsumWords = [
   'Roundnose air',
   'Roundnose stall',
 ];
+
+export default ipsumWords
