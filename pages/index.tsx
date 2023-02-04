@@ -32,29 +32,31 @@ export default function Home() {
 						Skater Lorem Ipsum Generator
 					</h1>
 
-					<div className='text-white'>{paragraphCount} {paragraphCount <= 1 ? 'paragraph' : 'paragraphs'}</div>
-					<input 
-						type="range" 
-						min="1" 
-						max="50" 
-						onChange={e => setParagraphCount(Number(e.target.value))} 
-						value={paragraphCount} 
-						className="w-64" 
-						>
-					</input>
+					<div className='py-6'>
+						<div className='text-white'>{paragraphCount} {paragraphCount <= 1 ? 'paragraph' : 'paragraphs'}</div>
+						<input 
+							type="range" 
+							min="1" 
+							max="50" 
+							onChange={e => setParagraphCount(Number(e.target.value))} 
+							value={paragraphCount} 
+							className="w-64" 
+							>
+						</input>
 
-					<div className='text-white'>{wordCount} {wordCount <= 1 ? 'word' : 'words'}</div>
-					<input 
-						type="range" 
-						min="1" 
-						max={ipsumWords.length}
-						onChange={e => setWordCount(Number(e.target.value))} 
-						value={wordCount} 
-						className="w-64" 
-						>
-					</input>
+						<div className='text-white'>{wordCount} {wordCount <= 1 ? 'word' : 'words'}</div>
+						<input 
+							type="range" 
+							min="1" 
+							max={ipsumWords.length}
+							onChange={e => setWordCount(Number(e.target.value))} 
+							value={wordCount} 
+							className="w-64" 
+							>
+						</input>
+					</div>
 
-					<div className='grid grid-cols-2 gap-4'>
+					<div className='grid sm:grid-cols-1 md:grid-cols-2 gap-4'>
 						{generate}
 					</div>
 
