@@ -1,61 +1,68 @@
+import {useState} from 'react'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import ipsumWords from '../data/ipsumWords'
 
 export default function Home() {
+	const [paragraphCount, setParagraphCount] = useState(1)
+	const [wordCount, setWordCount] = useState(ipsumWords.length)
+
+	// Creates a paragraph array with word limit
+	const paragraph = ipsumWords.slice(0, wordCount).join(' ')
+
+	// Generates lorum ipsum paragraph elements
+	// Array.from(Array(paragraphCount)) creates an empty iterable array 
+	const generate = Array.from(Array(paragraphCount)).map((par, idx) => {
+		return(
+			<p className='text-white' key={idx}>{paragraph.toLowerCase()}</p>
+		)
+	})
+	// bruh wtf
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Skater Lorem Ipsum Generator</title>
-        <meta name="description" content="Skater lorem ipsum generator" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+		<div className='bg-[#282a36]'>
+			<div className='container mx-auto '>
+				<Head>
+					<title>Skater Lorem Ipsum Generator</title>
+					<meta name="description" content="Skater lorem ipsum generator" />
+					<link rel="icon" href="/favicon.ico" />
+				</Head>
+				
+			
+				<main>
+					<h1 className='text-7xl text-center text-white'>
+						Skater Lorem Ipsum Generator
+					</h1>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Skater Lorem Ipsum Generator
-        </h1>
+					<div className='py-6'>
+						<div className='text-white'>{paragraphCount} {paragraphCount <= 1 ? 'paragraph' : 'paragraphs'}</div>
+						<input 
+							type="range" 
+							min="1" 
+							max="50" 
+							onChange={e => setParagraphCount(Number(e.target.value))} 
+							value={paragraphCount} 
+							className="w-64" 
+							>
+						</input>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
+						<div className='text-white'>{wordCount} {wordCount <= 1 ? 'word' : 'words'}</div>
+						<input 
+							type="range" 
+							min="1" 
+							max={ipsumWords.length}
+							onChange={e => setWordCount(Number(e.target.value))} 
+							value={wordCount} 
+							className="w-64" 
+							>
+						</input>
+					</div>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+					<div className='grid sm:grid-cols-1 md:grid-cols-2 gap-4'>
+						{generate}
+					</div>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        &copy; Your friends
-      </footer>
-    </div>
+				</main>
+			</div>
+		</div>
   )
 }
