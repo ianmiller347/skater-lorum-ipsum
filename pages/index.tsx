@@ -16,6 +16,7 @@ export default function Home() {
 			<p className='text-white' key={idx}>{paragraph.toLowerCase()}</p>
 		)
 	})
+	// bruh wtf
 
   return (
 		<div className='bg-[#282a36]'>
