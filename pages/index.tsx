@@ -43,6 +43,7 @@ export default function Home() {
 							value={paragraphCount} 
 							className="w-64" 
 							>
+                
 						</input>
 
 						<div className='text-white'>{wordCount} {wordCount <= 1 ? 'word' : 'words'}</div>
