@@ -129,4 +129,4 @@ const ipsumWords = [
   'Roundnose stall',
 ];
 
-export default ipsumWords
+export default ipsumWords;

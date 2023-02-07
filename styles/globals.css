@@ -4,7 +4,7 @@
 
 html,
 body {
-	background-color: #282a36;
+  background-color: #282a36;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -26,7 +26,7 @@ a {
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
+  background: #04aa6d; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
