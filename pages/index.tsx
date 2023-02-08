@@ -6,26 +6,34 @@ export default function Home() {
   const [paragraphCount, setParagraphCount] = useState(1);
   const [wordCount, setWordCount] = useState(ipsumWords.length);
 
-  // Creates a paragraph array with word limit
-  const paragraph = ipsumWords.slice(0, wordCount).join(' ');
+  // Creates a paragraph array with word limit and random words
+  const randomParagraph = () =>
+    ipsumWords
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value)
+      .slice(0, wordCount)
+      .join(' ');
 
   // Generates lorum ipsum paragraph elements
   // Array.from(Array(paragraphCount)) creates an empty iterable array
   const generate = Array.from(Array(paragraphCount)).map((par, idx) => {
     return (
       <p className="text-white" key={idx}>
-        {paragraph.toLowerCase()}
+        {randomParagraph().toLowerCase()}
       </p>
     );
   });
-  // bruh wtf
 
   return (
     <div className="bg-[#282a36]">
       <div className="container mx-auto ">
         <Head>
           <title>Skater Lorem Ipsum Generator</title>
-          <meta name="description" content="Skater lorem ipsum generator" />
+          <meta
+            name="description"
+            content="Skateboarding lorem ipsum text generator"
+          />
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
